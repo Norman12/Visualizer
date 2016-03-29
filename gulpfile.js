@@ -11,9 +11,9 @@ var gutil = require('gulp-util');
 var b = watchify(browserify("js/app.js"));
 b.transform(babelify);
 
-gulp.task('js', bundle); // so you can run `gulp js` to build the file
-b.on('update', bundle); // on any dep update, runs the bundler
-b.on('log', gutil.log); // output build logs to terminal
+gulp.task('js', bundle);
+b.on('update', bundle);
+b.on('log', gutil.log);
 
 function bundle() {
   return b.bundle()
@@ -31,20 +31,5 @@ gulp.task("webserver", function() {
     livereload: true
   });
 });
-
-/*gulp.task("compile", function () {
-  var bundler = browserify("js/app.js");
-  bundler.transform(babelify);
-
-  return bundler.bundle()
-  .on("error", function (err) { console.error(err); })
-  .pipe(source("app.bundle.js"))
-  .pipe(buffer())
-  .pipe(uglify())
-  .pipe(gulp.dest("dist"))
-  .pipe(connect.reload());
-
-  console.log('done');
-});*/a
 
 gulp.task("default", ["webserver", "js"]);
