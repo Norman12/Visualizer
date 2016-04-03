@@ -5,11 +5,15 @@
   <meta charset="utf-8">
 
   <title>Audio</title>
-  <meta name="description" content="Audio">
+  <meta name="description" content="Audio Visualizer">
   <meta name="author" content="Marcin Praski">
 
   <link rel="stylesheet" href="css/style.css">
-  <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+  
+  <link href='https://fonts.googleapis.com/css?family=Archivo+Narrow:400,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:700' rel='stylesheet' type='text/css'>
+
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel='stylesheet'>
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -17,14 +21,27 @@
 </head>
 
 <body>
-  <div id="container"></div>
-  <dic id="overlay">
-    <h1 id="h"></h1>
-    <h1 id="hh"></h1>
-    <h1 id="hhh"></h1>
-    <h1 id="hhhh"></h1>
-    <h1 id="hhhhh"></h1>
+  <div class="flexbox-container">
+    <div id="container"></div>
+    <div class="overlay">
+      <div class="display">
+        <div class="now-playing">
+          <h3>NOW PLAYING</h3>
+          <hr/>
+          <h1 id="song-title">KALIMBA</h1>
+          <h2 id="song-artist">By Mr. Scruff</h2>
+        </div>
+        <div class="controls">
+          <h2 class="control"><i class="fa fa-pause fa-2x"></i></h2>
+          <input type="file" accept="audio/mpeg3" id="file" class="inputfile"/>
+          <label for="file" class="button"><i class="fa fa-music" style="margin-right: 4px"></i> CHOOSE SONG</label>
+      </div>
+    </div>
   </div>
-  <script src="dist/app.bundle.js"></script>
+</div>
+<div class="about">
+  <p><i class="fa fa-code"></i> by <a href="#">Marcin Praski</a></p>
+</div>
+<script src="dist/app.bundle.js"></script>
 </body>
 </html>
